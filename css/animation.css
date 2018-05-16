@@ -1,0 +1,150 @@
+/* для скролла с инерцией, на андроиды лучше не юзать */
+.scrolling-touch{
+	-webkit-overflow-scrolling: touch;
+}
+
+.moveRight {
+    -webkit-animation: moveRight 0.3s ease forwards; /* назваине анимации, длительность одной анимации, тип анимации, замирание в конце */
+}
+
+.moveFromLeft {
+    -webkit-animation: moveFromLeft 0.3s ease forwards;
+}
+
+@-webkit-keyframes moveRight { /* сам процесс анимации */
+    from {
+        -webkit-transform: translateX(0%); /* начало анимации */
+        opacity:1;
+    }
+    to {
+        -webkit-transform: translateX(100%); /* конечный кадр */
+        opacity:0;
+    }
+}
+
+@-webkit-keyframes moveFromLeft {
+    from {
+        -webkit-transform: translateX(-100%); /* начало анимации */
+        opacity:0;
+    }
+    to {
+        -webkit-transform: translateX(0%); /* конечный кадр */
+        opacity:1;
+    }
+}
+
+.moveLeft {
+    -webkit-animation: moveLeft 0.3s ease forwards;
+}
+
+.moveFromRight {
+    -webkit-animation: moveFromRight 0.3s ease forwards;
+}
+
+@-webkit-keyframes moveLeft {
+    from {
+        -webkit-transform: translateX(0%);
+        opacity:1;
+    }
+    to {
+        -webkit-transform: translateX(-100%);
+        opacity:0;
+    }
+}
+
+@-webkit-keyframes moveFromRight {
+    from {
+        -webkit-transform: translateX(100%);
+        opacity:0;
+    }
+    to {
+        -webkit-transform: translateX(0%);
+        opacity:1;
+    }
+}
+
+.height0{
+    -webkit-animation: height0 0.3s ease forwards;
+}
+
+@-webkit-keyframes height0 { 
+    from{
+        height:140px;
+    }
+    to{
+        height:0px;
+    }
+}
+
+.height140{
+    -webkit-animation: height140 0.3s ease forwards;
+}
+
+@-webkit-keyframes height140 {
+    from{
+        height:0px;
+    }
+    to{
+        height:140px;
+    }
+}
+
+.error{
+    -webkit-animation: error 0.5s ease alternate infinite; /* alternate infinite - туда-обратно */
+}
+
+@-webkit-keyframes error {
+    from{
+        -webkit-box-shadow:0 0 0 0px rgba(160,216,0,1);
+    }
+    to{
+        -webkit-box-shadow:0 0 0 6px rgba(160,216,0,1);
+    }
+}
+
+.reveal{
+    -webkit-animation: reveal 0.5s ease forwards;
+}
+
+@-webkit-keyframes reveal {
+    from{
+        opacity:0;
+        height:0;
+    }
+    to{
+        opacity:1;
+        height:3em;
+    }
+}
+
+@media only screen and (min-width: 375px) and (max-width: 413px){
+
+}
+
+@media only screen and (min-width: 414px) and (max-width: 599px){
+
+}
+
+@media only screen and (min-width: 600px) {
+    @-webkit-keyframes height0 {
+        from{
+            height:200px;
+        }
+        to{
+            height:0px;
+        }
+    }
+
+    .height140{
+        -webkit-animation: height140 0.3s ease forwards;
+    }
+
+    @-webkit-keyframes height140 {
+        from{
+            height:0px;
+        }
+        to{
+            height:200px;
+        }
+    }
+}

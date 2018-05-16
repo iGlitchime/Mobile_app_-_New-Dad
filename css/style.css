@@ -1,0 +1,890 @@
+*{
+    -webkit-backface-visibility:hidden; /*отключает отрисовку задней стороны div*/
+    box-sizing:border-box; /* развмер DIV включает в себя padding и border */
+}
+html{
+    overflow: hidden;
+    position: relative;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+	user-select: none;
+	-ms-user-select: none;
+	-webkit-overflow-scrolling: touch;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-webkit-touch-callout: none;
+	-webkit-user-drag: none;
+	-webkit-active-highlight-color: rgba(0, 0, 0, 0);
+	user-select: none;
+	-webkit-user-select: none;
+	-webkit-touch-callout: none;
+	-webkit-user-drag: none;
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+body{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+	font-family: Helvetica, sans-serif, Regular, Arial;
+	user-select: none;
+	-ms-user-select: none;
+	-webkit-overflow-scrolling: touch;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-webkit-touch-callout: none;
+	-webkit-user-drag: none;
+	-webkit-active-highlight-color: rgba(0, 0, 0, 0);
+	user-select: none;
+	-webkit-user-select: none;
+	-webkit-touch-callout: none;
+	-webkit-user-drag: none;
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    margin: 0;
+}
+@font-face {
+    font-family: Arial; 
+    src: url(Arial.ttf);  
+}
+@font-face {
+    font-family: SF-Regular; 
+    src: url(SF-Regular.ttf);  
+}
+@font-face {
+    font-family: HelveticaNeue; 
+    src: url(HelveticaNeue.ttf);  
+}
+.tap{
+    opacity:0.5;
+}
+.scroll{
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+.page{
+    visibility: hidden;
+    position: absolute;
+    top: 0;
+    padding-bottom: 60px;/*tapbar*/
+    bottom: 0;
+    width:100%;
+    overflow:hidden;
+    z-index:200;
+    background-color: white;
+    -webkit-transform: translateX(100%);
+}
+.hold{
+    -webkit-transform: translateX(0);
+}
+.content{
+    font-family: "HelveticaNeue";
+    height: 80%;
+    top: 65px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+#first {
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-color: #CFF1FF;
+}
+.splash_icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 15em; 
+    height: 15em;
+    -webkit-transform: translate(-50%, -50%);
+    background: url(img/splashScreen_icon.svg) no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+.icon_settings {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    width: 7.5em;
+    height: 7.5em;
+    -webkit-transform: translate(-50%, -50%);
+    background: url(img/splashScreen_icon.svg) no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+.header_settings {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 10em;
+    height: 3em;
+    -webkit-transform: translate(-50%, -50%);
+    color: #005D95;
+    font-size: 22px;
+    font-family: "HelveticaNeue";
+    text-align: center;
+}
+.settings_block {
+    position: absolute;
+    width: 100%;
+    height: 6em;
+    bottom: 4.5em;
+    border-top: 1px solid #C8C7CC;
+    border-bottom: 1px solid #C8C7CC;
+}
+.Set_control {
+    position: relative;
+    height: 3em;
+    border-bottom: 1px solid #C8C7CC;
+    margin-left: 3em;
+    overflow: visible;
+}
+.Set_control:last-child {
+    border-bottom: 0;
+}
+
+.notif_control {
+    position: absolute;
+    height: 3em;
+    width: 3em;
+    right: 100%;
+    background: url(img/notif.svg) no-repeat;
+    background-position: center;
+    background-size: 1.8em;
+}
+.snd_control {
+    position: absolute;
+    height: 3em;
+    width: 3em;
+    right: 100%;
+    background: url(img/snd.svg) no-repeat;
+    background-position: center;
+    background-size: 1.8em;
+}
+.switcher {
+    position: absolute;
+    top: 10px;
+    right: 0;
+    overflow: hidden;
+    width: 2.8em;
+    height: 1.5em;
+    margin-right: 5%;
+    border-radius: 16px;
+    -webkit-box-shadow: inset 0 0 1px 0 rgba(0,0,0,0.5);
+    -webkit-transition: background-color 0.3s ease;
+}
+.switched {
+    background-color: #4DD865;
+}
+.switched > .circle {
+    margin-left: 22px;
+}
+.circle {
+    width: 22px;
+    height: 23px;
+    border-radius: 21px;
+    border: solid 1px rgba(0,0,0,0.1);
+    background-color: #ffffff;
+    -webkit-box-shadow: 0 1px 1px 0 rgba(0,0,0,0.2);
+    -webkit-transition: margin 0.3s ease;
+}
+#second .content, #third .content, #fourth .content {
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 100%;
+    
+}
+#fifth .content, #seventh .content {
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 80%;
+}
+#sixth .content, #eighth .content {
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 78%;
+}
+#second_title, #third_title, #fourth_title, #fifth_title, #six_title, .NavBar, #seventh_title, #eight_title, #nineth_title {
+    font-weight: bold;
+}
+.ButtonParent {
+    position: relative;
+}
+.buttonUpper {
+    height: 3em;
+    z-index: 200;
+    background-color: white;
+    text-align: center;
+    line-height: 3em;
+    color: #979797;
+    font-family: "Arial";
+}
+.buttonUpperActive {
+    color: #0176FE;
+}
+.activeButtonLine {
+    position: absolute;
+    bottom:0;
+    left:0;
+    height: 1px;
+    width: 33%;
+    background-color: #0176FE;
+    -webkit-transition: left 0.3s ease;
+    z-index: 200;
+}
+.inactiveButtonLine {
+    position: absolute;
+    bottom:0;
+    left:0;
+    height: 1px;
+    width: 100%;
+    background-color: #C8C7CC;
+}
+.dateRow {
+    position: relative;
+    display: none;
+    height: 2em;
+    width: 100%;
+    background-color: #EAEAEA;
+    color: #818080;
+    font-size: 1em;
+    line-height: 2em;
+    text-indent: 1em;
+    font-family: "SF-Regular";
+}
+.addButton{
+    position: absolute;
+    display: block;
+    top: 44%;
+    left: 50%;
+    width: 8em; 
+    height: 8em;
+    -webkit-transform: translate(-50%, -50%);
+    background: url(img/addButton.svg) no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+.button {
+    position: relative;
+    display: block;
+    height: 4em;
+    width: 100%;
+    right: 0em;
+    background-image: url(img/arrow_right_gray.svg);
+    background-repeat: no-repeat;
+    background-position-x: 19em;
+    background-position-y: 1.65em;
+    text-indent: 0.5em;
+    line-height: 4;
+    border-bottom: 1px solid lightgrey;
+    font-family: "SF-Regular";
+}
+.buttonTip {
+    position: relative;
+    display: block;
+    height: 4em;
+    width: 100%;
+    text-indent: 1em;
+    line-height: 4;
+    border-bottom: 1px solid lightgrey;
+    font-family: "SF-Regular";
+}
+.ChooseDateButton {
+    position: relative;
+    display: block;
+    height: 4em;
+    width: 100%;
+    right: 0em;
+    background-image: url(img/Calend_icon.svg);
+    background-repeat: no-repeat;
+    background-position-x: 1em;
+    background-position-y: 0.6em;
+    text-indent: 13.5em;
+    line-height: 4;
+    border-bottom: 1px solid lightgrey;
+    font-family: "SF-Regular";
+}
+.ChooseTimeButton {
+    position: relative;
+    display: block;
+    height: 4em;
+    width: 100%;
+    right: 0em;
+    background-image: url(img/Time_icon.svg);
+    background-repeat: no-repeat;
+    background-position-x: 1em;
+    background-position-y: 0.6em;
+    text-indent: 16.7em;
+    line-height: 4em;
+    border-bottom: 1px solid lightgrey;
+    font-family: "SF-Regular";
+}
+.tapbar {
+    position: absolute;
+    z-index: 250;
+    height: 3em;
+    width: 100%;
+    bottom: 0;
+    background-color: #F2F2F2;
+}
+#first {
+    z-index: 300;
+}
+.tabButton {
+    width: 3em;
+}
+#mommy_hack {
+    background: url(img/inactive_mommy.svg) no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+#baby_hack{
+    background: url(img/inactive_baby.svg) no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+#home{
+    background: url(img/inactive_home.svg) no-repeat;
+    background-position: center;
+    background-size: 2.2em;
+}
+#mommy_hack.active {
+    background: url(img/active_mommy.svg) no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+#baby_hack.active{
+    background: url(img/active_baby.svg) no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+#home.active{
+    background: url(img/active_home.svg) no-repeat;
+    background-position: center;
+    background-size: 2.2em;
+}
+.actButton {
+    height: 4em;
+    margin-left: 1em;
+    line-height: 4em;
+    border-bottom: 1px solid lightgrey;
+    font-family: "SF-Regular";
+}
+#divTap .actButton:last-child {
+    margin-left: 0;
+    padding-left: 1em;
+}
+.img {
+    margin-right: 1em;
+    width: 4em;
+    height: 4em;
+    font-family: "SF-Regular";
+}
+.feed {
+    position: relative;
+    background: url(img/feed.svg) no-repeat;
+    background-position: left center;
+    background-size: 3em;
+    font-family: "SF-Regular";
+}
+.play {
+    position: relative;
+    background: url(img/play.svg) no-repeat;
+    background-position: left center;
+    background-size: 3em;
+    font-family: "SF-Regular";
+}
+.diapers {
+    position: relative;
+    background: url(img/diapers.svg) no-repeat;
+    background-position: left center;
+    background-size: 3em;
+    font-family: "SF-Regular";
+}
+.bath {
+    position: relative;
+    background: url(img/bath.svg) no-repeat;
+    background-position: left center;
+    background-size: 3em;
+    font-family: "SF-Regular";
+}
+.walk {
+    position: relative;
+    background: url(img/walk.svg) no-repeat;
+    background-position: left center;
+    background-size: 3em;
+    font-family: "SF-Regular";
+}
+.doctor {
+    position: relative;
+    background: url(img/doctor.svg) no-repeat;
+    background-position: left center;
+    background-size: 3em;
+    font-family: "SF-Regular";
+}
+.fdt{
+    position: relative;
+    z-index: 100;
+    padding: 10px 0;
+    border-bottom: 1px solid #ccc;
+    text-align: center;
+    font-family: "HelveticaNeue";
+    user-select: none;
+    -webkit-user-select: none;
+    -webkit-user-drag: none;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0)
+}
+.fdtLines{
+    position: absolute;
+    z-index: 100;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    margin-top: -16px;
+    height: 30px;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    pointer-events: none
+}
+.fdt .swiper-container{
+    display: inline-block;
+    padding: 0 10px;
+    height: 150px;
+    font-size: 24px
+}
+.fdt .swiper-slide{
+    line-height: 28px;
+    color: #ccc;
+}
+.fdt .swiper-slide-active{
+    color: #000;
+}
+.fdt.error .swiper-slide-active{
+    color: red;
+}
+.NavBar {
+    position: relative;
+    padding-top: 20px;
+    height: 64px;
+    background: #F5F4F4;
+    text-align: center;
+    line-height: 44px;
+    color: #262626;
+    font-family: "HelveticaNeue";
+}
+.NavBar::after {
+    content: "";
+    position: absolute;
+    height: 1px;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    -webkit-transform-origin: bottom;
+    -webkit-transform: scaleY(0.5);
+    background-color: #B2B2B2;
+}
+.rightNavButton{
+    position: absolute;
+    right:10px;
+    top: 20px;
+    width: 44px;
+    height: 44px;
+}
+.SettingsNavButton{
+    position: absolute;
+    right: 0px;
+    top: 23px;
+    width: 44px;
+    height: 44px;
+}
+#goSettings {
+    background: url(img/settings.svg) no-repeat;
+    background-position: center;
+    background-size: 29px;
+}
+
+#note {
+    background: url(img/addNote_small.svg) no-repeat;
+    background-position: center;
+    background-size: 29px;
+}
+#done {
+    background: url(img/done.svg) no-repeat;
+    background-position: right;
+    background-size: 25px;
+}
+.leftNavButton {
+    position: absolute;
+    left:10px;
+    top: 20px;
+    width: 44px;
+    height: 44px;
+    background: url(img/Back_arrow.svg) no-repeat;
+    background-position: left;
+    background-size: 16px;
+}
+.checkRadio {
+    opacity: 0;
+    -webkit-transition: opacity 0.2s ease;
+    margin-right: 1em;
+    position: relative;
+    width: 4em;
+    background: url(img/check.svg) no-repeat;
+    background-position: right center;
+    background-size: 1em;
+}
+.checked > .checkRadio {
+    opacity:1;
+}
+.advice_picture {
+    height: 13em;
+    width: 100%;
+}
+li {
+    text-indent: 0;
+    margin-bottom: 13px;
+}
+.TipsAnswer{
+    position:absolute;
+    display: block;
+    width: 100%;
+    height: 6em;
+    bottom: 44px;
+    background-color: #fff;
+    text-align: center;
+    font-family: "HelveticaNeue";
+}
+#sixth .content, #eighth .content{
+    padding-bottom: 5em;
+}
+.TipsButtonYes{
+    position: relative;
+    height: 3em;
+    color: #417505;
+    border-top: 1px solid #C8C7CC;
+    line-height: 3em;
+    font-family: "SF-Regular"; 
+}
+.TipsButtonNo{
+    position: relative;
+    height: 3em;
+    color: #D0021B;
+    border-top: 1px solid #C8C7CC;
+    line-height: 3em;
+    font-family: "SF-Regular"; 
+}
+#DayTask{
+    position: relative;
+    display: block;
+    width: 100%;
+    right: 0em;
+    background-position-x: 24em;
+    background-position-y: 1.65em;
+    text-indent: 1em;
+    line-height: 4;
+    height: 66%;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+.time {
+    position: relative;
+    width: 4em;
+    float: left;
+    margin-right: 1em;
+}
+.notepic {
+    position: relative;
+    width: 4em;
+    float: left;
+}
+.title {
+    position: relative;
+    width: 6em;
+    float: left;
+}
+.check {
+    position: relative;
+    width: 4em;
+    float: left;
+}
+#chosenActIcon {
+    margin-left: 1em;
+}
+.GotTip {
+    position: relative;
+    opacity: 0;
+    height: 3em;
+    float: right;
+    width: 3em;
+    background-image: url(img/check.svg);
+    background-repeat: no-repeat;
+    background-position-x: 1.5em;
+    background-position-y: 1.65em; 
+    text-indent: 4em; 
+    line-height: 4em; 
+    overflow-x: hidden;
+    overflow-y: scroll;
+    font-family: "SF-Regular";
+}
+.alertBackground {
+    position: absolute;
+    display: block;
+    height: 100%;
+    width: 100%;
+    background-color: #000;
+    opacity: 0.5;
+    z-index: 998;
+}
+.alertwindow {
+    position: absolute;
+    display: block;
+    z-index: 999;
+    top: 50%;
+    left: 50%;
+    width: 15em; 
+    height: 8em;
+    -webkit-transform: translate(-50%, -50%);
+    background-color: #fff;
+    background-position: center;
+    border: 1px solid #fff;
+    border-radius:13px;
+}
+.alertActivity{
+    display: none;
+    font-family: "HelveticaNeue";
+}
+.alertMessage {
+    text-align: center;
+    border-bottom: 1px #C8C7CC solid;
+    padding: 5px 10px;
+    height: 5em;
+}
+.alertContainer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+}
+.alertYes {
+    text-align: center;
+    line-height: 3em;
+}
+.listItem {
+    border-bottom: 1px #C8C7CC solid;
+    font-family: "SF-Regular";
+    -webkit-transition: -webkit-transform 0.3s ease;
+}
+.Tocheck {
+    position: relative;
+    opacity: 0;
+    height: 3em;
+    width: 3em;
+    background-image: url(img/check.svg);
+    background-repeat: no-repeat;
+    background-position-x: 1em;
+    background-position-y: 1.65em; 
+    text-indent: 4em; 
+    line-height: 4em; 
+}
+.checked > .Tocheck {
+    opacity: 1;
+}
+.QuestionCards {
+    display: block;
+    visibility: hidden;
+    font-family: "HelveticaNeue";
+}
+.CardWindow {
+    position: absolute;
+    z-index: 999;
+    top: 50%;
+    left: 50%;
+    width: 17em;
+    height: 22em;
+    -webkit-transform: translate(-50%, -50%);
+    background-color: #fff;
+    background-position: center;
+    border: 1px solid #fff;
+    border-radius: 4px;
+}
+.CardMessage {
+    padding: 4em 2em;
+    text-align: left;
+    line-height: 1.2em;
+    border-bottom: 1px #C8C7CC solid; 
+}
+.CardYes, .CardNo {
+    text-align: center;
+    line-height: 3em;
+    font-family: "SF-Regular";
+}
+.border.shrink {
+    background-color: #C8C7CC;
+    width: 1px;
+}
+.advice_text{
+    padding-top: 1em;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+    text-indent: 1em;
+    color: #191919;
+}
+.collapse {
+    width: 0;
+}
+.txt {
+    line-height: 3em;
+}
+.date {
+    position: relative;
+    width: 8em;
+    height: 4em;
+    float: left;
+    margin-right: 0;
+    margin-top: -0.5em;
+}
+.date > .time {
+    position: relative;
+    width: 4em;
+    height: 2em;
+    float: left;
+    margin-right: 0;
+    margin-top: -2.5em;
+}
+.swipeLeft {
+    -webkit-transform: translateX(-3em);
+    /*-webkit-transition: translateX 0.3s ease;*/
+}
+.delCross{
+    width: 3em;
+    height: 4em;
+    top: 0;
+    position: absolute;
+    display: block;
+    right: -3em;
+    background-color: red;
+    background-image: url('img/trash.svg');
+    background-repeat: no-repeat;
+    background-size: 40%;
+    background-position: center;
+}
+.containRowNote {
+    height: 4em;
+    border-bottom: 1px #C8C7CC solid;
+}
+
+ /*iFone 6 */
+@media only screen and (min-width: 340px) {
+    .splash_icon {
+        width: 15em; 
+        height: 15em;
+    }
+    #DayTask {
+        height: 69%;
+    }
+    .settings_block {
+        bottom: 4.5em;
+    }
+
+    
+    .button {
+        background-position-x: 22em;
+    }
+    .ChooseDateButton {
+        text-indent: 16.5em;
+    }
+    .ChooseTimeButton {
+        text-indent: 19.8em;
+    }
+    .advice_picture {
+        height: 14em;
+    }
+    .Tocheck {
+        background-position-x: 1em;
+    }
+    
+}
+
+ /*iFone 6+ */
+@media only screen and (min-width: 390px) {
+    #DayTask {
+        height: 74%;
+    }
+    .button {
+        background-position-x: 24.5em;
+    }
+    .icon_settings{
+        top: 29%;
+        width: 11em;
+        height: 11em;
+    }
+    .ChooseDateButton {
+        text-indent: 19em;
+    }
+    .ChooseTimeButton {
+        text-indent: 22.2em;
+    }
+    .Tocheck {
+        width: 5em;
+        background-position-x: 3.8em;
+    }
+    #fifth .content, #seventh .content {
+        height: 84%;
+    }
+}
+
+ /*iPaid Portret */
+@media only screen and (min-width: 600px) {
+    #DayTask {
+        height: 81%;
+    }
+    .icon_settings{
+        top: 30%;
+        width: 20em;
+        height: 20em;
+    }
+    .splash_icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 22em; 
+    height: 22em;
+}
+    .button {
+        background-position-x: 46.5em;
+    }
+    .ChooseDateButton {
+        text-indent: 40.5em;
+    }
+    .ChooseTimeButton {
+        text-indent: 44em;
+    }
+    .advice_picture {
+        height: 36em; 
+        width: 100%;
+    }
+    .Tocheck {
+        width: 27.8em;
+        background-position-x: 25.8em;
+    }
+    .CardWindow {
+        width: 26em;
+    }
+    
+}
+/* iPaid Lanscape 
+/*@media only screen and (min-width: 1000px) {
+}*/

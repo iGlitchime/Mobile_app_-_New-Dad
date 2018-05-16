@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="25px" height="26px" viewBox="0 0 25 26" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.5.2 (25235) - http://www.bohemiancoding.com/sketch -->
+    <title>Edit Button</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="Экран-1.0(0)" sketch:type="MSArtboardGroup" transform="translate(-339.000000, -30.000000)" fill="#0176FE">
+            <g id="Bottom-Bar/Toolbar" sketch:type="MSLayerGroup" transform="translate(339.000000, 30.000000)">
+                <path d="M0,5.12391825 L16.1132813,5.12391825 L15.0390625,6.20725158 L1.07421875,6.20725158 L1.07421875,24.6239182 L19.3359375,24.6239182 L19.3359375,10.5405849 L20.4101563,9.45725158 L20.4101563,25.7072516 L0,25.7072516 L0,5.12391825 Z M19.9775993,2.29339936 L9.71883207,12.639055 L8.09902673,17.5396287 L12.4185076,16.4506123 L23.21721,5.56044851 L22.1373397,4.47143212 L11.8785725,14.8170878 L10.2587672,15.3615959 L10.7987023,13.7280714 L21.0574695,3.38241574 L19.9775993,2.29339936 Z M20.5175344,1.74889117 L23.7571451,5.01594031 L24.3236744,4.44461269 C24.9053827,3.85797751 24.8989347,2.90035139 24.3161807,2.31266166 L23.1981094,1.18512067 C22.6122625,0.594311809 21.6601057,0.596642674 21.0840637,1.17756354 L20.5175344,1.74889117 Z" id="Edit-Button" sketch:type="MSShapeGroup"></path>
+            </g>
+        </g>
+    </g>
+</svg>

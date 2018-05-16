@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="js/content.js"></script>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">  <!-- запрещает user-scale -->
+        <meta name="format-detection" content="telephone=no"> <!-- запрет на использование цифр к набору как номер телефона -->
+
+        <link rel="stylesheet" type="text/css" href="css/flex.css"> 
+        <link rel="stylesheet" type="text/css" href="css/animation.css">
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+        <link rel="stylesheet" type="text/css" href="css/swiper.min.css">
+        <!--<script src="js/webactivity.2.0.7.js"></script>-->
+        <script src="js/tap.mod.2.6.js"></script>
+        <script src="js/swiper.min.js"></script>
+        <script src="js/fDates.js"></script>
+        <script src="js/fdt.js"></script>
+        <script src="js/webactivity.js"></script>
+        <script src="js/main.js"></script>
+    </head>
+    
+    <body>
+        <div id="alertActivity" class="alertActivity col">
+            <div class="alertBackground"></div>
+            <div class="alertwindow col">
+                <div class="alertMessage flex col justify-content-center" id="alertMessage"></div>
+                <div class="alertYes shrink" id="alertYes">OK</div>
+            </div>
+        </div>
+        <div id="QuestionCards" class="QuestionCards col">
+            <div class="alertBackground"></div>
+            <div class="CardWindow col">
+                <div class="CardMessage flex col justify-content-center" id="CardQ">Question Place</div>
+                <div class="shrink row">
+                    <div class="CardYes flex" id="CardYes">True</div>
+                    <div class="border shrink"></div>
+                    <div class="CardNo flex" id="CardNo">False</div>
+                </div>
+                
+            </div>
+        </div>
+        <div class="tapbar row justify-content-space-between">
+            <div class="tabButton active" id="home"></div>
+            <div class="tabButton" id="baby_hack"></div>
+            <div class="tabButton" id="mommy_hack"></div>
+        </div>
+
+
+        <div id="first" class="page col hold" data-n="1" style="visibility: visible">
+            <div class="splash_icon"></div>
+        </div>
+        
+        
+        
+        <div id="second" class="page col" data-n="2">
+            <div class="NavBar shrink">
+                <div id="second_title">Reminders</div>
+                <div class="SettingsNavButton" id="goSettings"></div>
+                <div class="leftNavButton" id="note"></div></div>
+            <div class="content flex">
+                <div class="ButtonParent row">
+                    <div class="buttonUpper flex buttonUpperActive" id="today">Today</div>
+                    <div class="buttonUpper flex" id="tomorrow">Tomorrow</div>
+                    <div class="buttonUpper flex" id="AllNotes">All Notes</div>
+                    <div class="inactiveButtonLine"></div>
+                    <div class="activeButtonLine" id="activeButtonLine"></div>
+                </div>
+                <div class="dateRow" id="dateRow">Date</div>
+                <div id="DayTask" class="flex scroll"></div>
+                <div class="addButton" id="addNote"></div>
+            </div>
+        </div>
+        
+        
+        
+        <div id="third" class="page col" data-n="3">
+            <div class="NavBar shrink">
+                <div id="third_title">New Reminder</div>
+                <div class="rightNavButton" id="done"></div>
+                <div class="leftNavButton" id="NewToMain"></div>
+            </div>
+            <div class="content flex col">
+                <div class="ChooseActivity button" id="choose_activity">
+                    <div class="row">
+                        <div id="chosenActIcon" class="shrink img"></div>
+                        <div id="chosenActTxt"class="flex"></div>
+                    </div>
+                </div>
+                <div class="ChooseDateButton" id="choose_date">Date</div>
+                <div class="ChooseTimeButton" id="choose_time">Time</div>
+                <div class="barrel fdt" id="barrel_date"></div>
+            </div>
+        </div>
+        
+        
+        
+        
+        <div id="fourth" class="page col" data-n="4">
+            <div class="NavBar shrink">
+                <div id="fourth_title">Choose Baby Advice</div>
+                <div class="leftNavButton" id="ActToNote"></div>
+            </div>
+            <div class="content flex col" id="divTap">
+                <div class="actButton row" data-pic="feed">
+                    <div class="shrink img feed"></div>
+                    <div class="flex"><script>document.write(words.activities.feed);</script></div>
+                    <div class="shrink checkRadio"></div>
+                </div>
+                <div class="actButton row"  data-pic="play">
+                    <div class="shrink img play"></div>
+                    <div class="flex"><script>document.write(words.activities.play);</script></div>
+                    <div class="shrink checkRadio"></div>
+                </div>
+                <div class="actButton row" data-pic="diapers">
+                    <div class="shrink img diapers"></div>
+                    <div class="flex"><script>document.write(words.activities.diapers);</script></div>
+                    <div class="shrink checkRadio"></div>
+                </div>
+                <div class="actButton row" data-pic="walk">
+                    <div class="shrink img walk"></div>
+                    <div class="flex"><script>document.write(words.activities.walk);</script></div>
+                    <div class="shrink checkRadio"></div>
+                </div>
+                <div class="actButton row" data-pic="bath">
+                    <div class="shrink img bath"></div>
+                    <div class="flex"><script>document.write(words.activities.bath);</script></div>
+                    <div class="shrink checkRadio"></div>
+                </div>
+                <div class="actButton row" data-pic="doctor">
+                    <div class="shrink img doctor"></div>
+                    <div class="flex"><script>document.write(words.activities.doctor);</script></div>
+                    <div class="shrink checkRadio"></div>
+                </div>
+            </div>
+        </div>
+        
+        
+        
+        
+        <div id="fifth" class="page col" data-n="5">
+            <div class="NavBar shrink">
+                <div id="fifth_title">Choose Baby Advice</div>
+            </div>
+            <div class="content flex col">
+                <div class="advices_list shrink" id="BabyAdviceList">
+                    <div class="buttonTip advice" data-adv="0"><div class="GotTip" id="tip_0"></div><script>document.write(words.advices[0].title);</script></div>
+                    <div class="buttonTip advice" data-adv="1"><div class="GotTip" id="tip_1"></div><script>document.write(words.advices[1].title);</script></div>
+                    <div class="buttonTip advice" data-adv="2"><div class="GotTip" id="tip_2"></div><script>document.write(words.advices[2].title);</script></div>
+                    <div class="buttonTip advice" data-adv="3"><div class="GotTip" id="tip_3"></div><script>document.write(words.advices[3].title);</script></div>
+                    <div class="buttonTip advice" data-adv="4"><div class="GotTip" id="tip_4"></div><script>document.write(words.advices[4].title);</script></div>
+                </div>
+            </div>
+        </div>
+        
+        
+        
+        
+        <div id="sixth" class="page col" data-n="6">
+            <div class="NavBar shrink">
+                <div id="six_title"></div>
+                <div class="leftNavButton" data-back="fifth"></div>
+            </div>
+            <div class="content flex col">
+                <div class="chosen advice flex" id="baby_advice">
+                    <div class="advice_picture"></div>
+                    <div class="advice_text"></div>
+                </div>
+            </div>
+            <div class="TipsAnswer">
+                <div class="TipsButtonYes " id="BabyYes">Got it</div>
+                <div class="TipsButtonNo" id="BabyNo">Later</div>
+            </div>
+        </div>
+        
+        
+        
+        
+        <div id="seventh" class="page col" data-n="7">
+            <div class="NavBar shrink">
+                <div id="seventh_title">Choose Mommy tips</div>
+            </div>
+            <div class="content flex col">
+                <div class="advices_list shrink" id="MommyAdviceList">
+                    <div class="buttonTip advice" data-adv="5"><div class="GotTip" id="tip_5"></div><script>document.write(words.advices[5].title);</script></div>
+                    <div class="buttonTip advice" data-adv="6"><div class="GotTip" id="tip_6"></div><script>document.write(words.advices[6].title);</script></div>
+                    <div class="buttonTip advice" data-adv="7"><div class="GotTip" id="tip_7"></div><script>document.write(words.advices[7].title);</script></div>
+                    <div class="buttonTip advice" data-adv="8"><div class="GotTip" id="tip_8"></div><script>document.write(words.advices[8].title);</script></div>
+                    <div class="buttonTip advice" data-adv="9"><div class="GotTip" id="tip_9"></div><script>document.write(words.advices[9].title);</script></div>
+                    <div class="buttonTip advice" data-adv="10"><div class="GotTip" id="tip_10"></div><script>document.write(words.advices[10].title);</script></div>
+                    <div class="buttonTip advice" data-adv="11"><div class="GotTip" id="tip_11"></div><script>document.write(words.advices[11].title);</script></div>
+                    <div class="buttonTip advice" data-adv="12"><div class="GotTip" id="tip_12"></div><script>document.write(words.advices[12].title);</script></div>
+                    <div class="buttonTip advice" data-adv="13"><div class="GotTip" id="tip_13"></div><script>document.write(words.advices[13].title);</script></div>
+                    <div class="buttonTip advice" data-adv="14"><div class="GotTip" id="tip_14"></div><script>document.write(words.advices[14].title);</script></div>
+                </div>
+            </div>
+        </div>
+        
+        
+        
+        
+        <div id="eighth" class="page col" data-n="8">
+            <div class="NavBar shrink">
+                <div id="eight_title"></div>
+                <div class="leftNavButton" data-back="seventh"></div>
+            </div>
+            <div class="content flex col">
+                <div class="chosen advice flex" id="mommy_advice">
+                    <div class="advice_picture"></div>
+                    <div class="advice_text"></div>
+                </div>
+            </div>
+            <div class="TipsAnswer">
+                    <div class="TipsButtonYes" id="MommyYes">Got it</div>
+                    <div class="TipsButtonNo" id="MommyNo">Later</div>
+                </div>
+        </div>
+        
+        
+        
+        <div id="nineth" class="page col" data-n="9">
+            <div class="NavBar shrink">
+                <div id="nineth_title">Settings</div>
+                <div class="leftNavButton" data-back="second"></div>
+            </div>
+            <div class="content flex col">
+                <div class="chosen advice flex" id="settingsContent">
+                    <div class="icon_settings"></div>
+                    <div class="header_settings">New Dad<br>Baby Care Guide</div>
+                    <div class="settings_block">
+                        <div class="Set_control">
+                            <div class="notif_control"></div>
+                            <div class="txt">Notifications</div>
+                            <div id="notifSW" class="switcher">
+                                <div class="circle"></div>
+                            </div>
+                        </div>
+                        <div class="Set_control">
+
+                            <div class="snd_control"></div>
+                            <div class="txt">Sounds</div>
+                            <div id="soundSW" class="switcher">
+                                <div class="circle"></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+    </body>
+</html>
